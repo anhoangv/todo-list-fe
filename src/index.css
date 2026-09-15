@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.circle-reveal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.circle-reveal::before {
+  content: "";
+  position: absolute;
+  left: var(--circle-x, 50%);
+  top: var(--circle-y, 50%);
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: var(--circle-bg, #000);
+  animation: circle-grow 0.7s forwards;
+}
+
+@keyframes circle-grow {
+  to {
+    width: 300vw;
+    height: 300vw;
+    opacity: 1;
+  }
+}
